@@ -12,17 +12,20 @@ module TwitterHelper
     TwitterHelper.client
   end
 
-  def search_for(string)
+  def self.search_for(string)
     # get client
     client = TwitterHelper.get_client
+    puts (client.access_token == nil ? "client is nil" : "client is ok, let fire the API !")
     # get analyser + initialize some vars
     analyzer = Sentimental.new
+    analyzer.load_defaults
+    analyzer.threshold = 0.1
     score = 0
     positive = 0
     neutral = 0
     negative = 0
     # scrap tweets
-    client.search("to:justinbieber", result_type: "recent").take(100).collect do |tweet|
+    client.search(string, result_type: "recent").first(100).collect do |tweet|
       # "#{tweet.user.screen_name}: #{tweet.text}"
       score = analyzer.score tweet.text
       if score > 0.25
@@ -37,3 +40,4 @@ module TwitterHelper
     return results
   end
 end
+

@@ -4,11 +4,11 @@ include Facebook::Messenger
 Facebook::Messenger::Subscriptions.subscribe(access_token: ENV['ACCESS_TOKEN'])
 
 Bot.on :message do |message|
-  message.reply(text: 'Hello, donne moi un @identifiant ou bien un #hashtag et je te dis ce qu\' en pense Twitter :).')
+  message.reply(text: 'Hello, donne moi un @id ou bien un #hashtag et je te dis ce qu\' en pense Twitter :).')
   if message.text.include? ("@" || "#")
     message.reply(text: 'Ok bro, je t\'envoie les résultats de mon analyse asap.')
-    client = TwitterHelper.get_client
-    results = client.search_for(message.text)
+    # client = TwitterHelper.get_client
+    results = TwitterHelper.search_for(message.text)
     results.each do |result|
       message.reply(text: "Positif : #{result}")
     end
