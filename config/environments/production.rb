@@ -1,3 +1,5 @@
+require 'twitter'
+
 Rails.application.configure do
   # Verifies that versions and hashed value of the package contents in the project's package.json
 config.webpacker.check_yarn_integrity = false
@@ -94,7 +96,7 @@ config.webpacker.check_yarn_integrity = false
 
   client = Twitter::REST::Client.new do |config|
     config.consumer_key        = ENV['CONSUMER_KEY']
-    config.consumer_secret     = ENV['consumer_secret']
+    config.consumer_secret     = ENV['CONSUMER_SECRET']
     config.access_token        = ENV['ACCESS_TOKEN_TW']
     config.access_token_secret = ENV['ACCESS_TOKEN_SECRET_TW']
   end
