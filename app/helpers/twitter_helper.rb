@@ -1,6 +1,6 @@
 module TwitterHelper
   def self.get_client
-    client = Twitter::REST::Client.new do |config|
+    Twitter::REST::Client.new do |config|
       config.consumer_key = ENV["CONSUMER_KEY"]
       config.consumer_secret = ENV['CONSUMER_SECRET']
       config.access_token = ENV['ACCESS_TOKEN_TW']
@@ -10,5 +10,30 @@ module TwitterHelper
 
   def get_client
     TwitterHelper.client
+  end
+
+  def search_for(string)
+    # get client
+    client = TwitterHelper.get_client
+    # get analyser + initialize some vars
+    analyzer = Sentimental.new
+    score = 0
+    positive = 0
+    neutral = 0
+    negative = 0
+    # scrap tweets
+    client.search("to:justinbieber", result_type: "recent").take(100).collect do |tweet|
+      "#{tweet.user.screen_name}: #{tweet.text}"
+      score = analyzer.score tweet.text
+      if score > 0.25
+        positive += 1
+      elsif score > -0.25
+        neutral += 1
+      else
+        negative += 1
+      end
+    end
+    results = [positive, neutral, negative]
+    return results
   end
 end

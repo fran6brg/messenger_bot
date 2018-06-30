@@ -19,6 +19,7 @@ gem 'webpacker'
 
 gem 'facebook-messenger'
 gem 'twitter'
+gem 'sentimental'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
