@@ -4,7 +4,7 @@ include Facebook::Messenger
 Facebook::Messenger::Subscriptions.subscribe(access_token: ENV['ACCESS_TOKEN'])
 
 Bot.on :message do |message|
-  if message.text.include? "Hello")
+  if message.text.include? "Hey bitch")
      message.reply(text: 'Hello :), donne moi un @id ou bien un #hashtag et je te dis ce que la Twittosphère en pense.')
   end
   if message.text.include? ("@" || "#")
@@ -21,6 +21,7 @@ Bot.on :message do |message|
       results.each_with_index do |result, index|
         message.reply(text: "Tweets #{categories[index]} : #{result} (#{((result/sum)*100).round(2)}%).")
       end
+      message.reply(text: "Des questions sur la façon dont j'ai calculé ces résultats ? Tape \"Twitter sentimental analysis\" sur google, tu comprendras j'en suis sûr !")
     end
   end
 end
