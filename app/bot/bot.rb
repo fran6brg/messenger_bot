@@ -14,10 +14,10 @@ Bot.on :message do |message|
       message.reply(text: 'Aucun tweet ne match ta requête :/.')
     else
       results.each { |a| sum+=a }
-      message.reply(text: 'Il y a #{sum} tweets ;).')
+      message.reply(text: "Il y a #{sum} tweets ;).")
       categories = ["Positif", "Neutre", "Négatif"]
       results.each_with_index do |result, index|
-        message.reply(text: "categories[index] : #{result}.")
+        message.reply(text: "#{categories[index]} : #{result}.")
       end
     end
   else
