@@ -164,6 +164,7 @@ GEM
       bundler
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
+    sentimental (1.4.1)
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -232,6 +233,7 @@ DEPENDENCIES
   rails (= 5.1.4)
   redis
   sass-rails
+  sentimental
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
