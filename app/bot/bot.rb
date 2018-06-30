@@ -3,13 +3,8 @@ include Facebook::Messenger
 
 Facebook::Messenger::Subscriptions.subscribe(access_token: ENV['ACCESS_TOKEN'])
 
-hello = 0
-
 Bot.on :message do |message|
-  if hello == 0
-    message.reply(text: 'Hello, donne moi un @identifiant ou bien un #hashtag et je te dis ce qu\' en pense Twitter :).')
-    hello = 1
-  end
+  message.reply(text: 'Hello, donne moi un @identifiant ou bien un #hashtag et je te dis ce qu\' en pense Twitter :).')
   if message.text.include? ("@" || "#")
     message.reply(text: 'Ok bro, je t\'envoie les résultats de mon analyse asap.')
     client = TwitterHelper.get_client
