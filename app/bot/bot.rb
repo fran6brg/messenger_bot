@@ -20,21 +20,5 @@ Bot.on :message do |message|
         message.reply(text: "Tweets #{categories[index]} : #{result} (#{((result/sum)*100).round(2)}%).")
       end
     end
-  else
-    message.reply(
-      text: 'Ceci est une question ?',
-      quick_replies: [
-        {
-          content_type: 'text',
-          title: 'Ceci est une réponse',
-          payload: 'HARMLESS'
-        },
-        {
-          content_type: 'text',
-          title: 'Ceci est une réponse identique',
-          payload: 'EXTERMINATE'
-        }
-      ]
-    )
   end
 end
