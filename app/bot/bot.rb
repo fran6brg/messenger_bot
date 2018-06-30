@@ -3,9 +3,13 @@ include Facebook::Messenger
 
 Facebook::Messenger::Subscriptions.subscribe(access_token: ENV['ACCESS_TOKEN'])
 
+hello = 0
 
 Bot.on :message do |message|
-  message.reply(text: 'Hello, donne moi un @identifiant ou bien un #hashtag et je te dis ce qu\' en pense Twitter :).')
+  if hello == 0
+    message.reply(text: 'Hello, donne moi un @identifiant ou bien un #hashtag et je te dis ce qu\' en pense Twitter :).')
+    hello = 1
+  end
   if message.text.include? ("@" || "#")
     message.reply(text: 'Ok, je t\'envoie les résultats de mon analyse asap.')
     client = TwitterHelper.get_client
@@ -15,7 +19,7 @@ Bot.on :message do |message|
     end
   else
     message.reply(
-      text: 'Ceci est une question',
+      text: 'Ceci est une question ?',
       quick_replies: [
         {
           content_type: 'text',

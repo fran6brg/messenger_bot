@@ -23,7 +23,7 @@ module TwitterHelper
     negative = 0
     # scrap tweets
     client.search("to:justinbieber", result_type: "recent").take(100).collect do |tweet|
-      "#{tweet.user.screen_name}: #{tweet.text}"
+      # "#{tweet.user.screen_name}: #{tweet.text}"
       score = analyzer.score tweet.text
       if score > 0.25
         positive += 1
