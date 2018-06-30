@@ -23,3 +23,10 @@ yarn-error.log
 #   accessTokenSecret = "DjSHXl4feOS7bmn6aDLasLEaTaF2uZ67jAcLFs42jT6M0"
 #   client = Twitter::REST::Client.new { |config| config.consumer_key = consumerKey ; config.consumer_secret = consumerSecret ; config.access_token = accessToken ; config.access_token_secret = accessTokenSecret }
 # end
+
+# consumerKey = "vRpODl64Nnb3UsbpFcEiqLH1X"
+# consumerSecret = "MDyF1EVkoBfKBJhy1L9f0asEeCBqudFe2t66AwS53xpgr8ndBL"
+# accessToken = "910596684647985152-83GBHVYxQQ4tX4ijVHOVh9bFTwVb0Ru"
+# accessTokenSecret = "DjSHXl4feOS7bmn6aDLasLEaTaF2uZ67jAcLFs42jT6M0"
+# client = Twitter::REST::Client.new { |config| config.consumer_key = consumerKey ; config.consumer_secret = consumerSecret ; config.access_token = accessToken ; config.access_token_secret = accessTokenSecret }
+# TwitterHelper.search_for("macron")
