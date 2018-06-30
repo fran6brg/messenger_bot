@@ -19,7 +19,7 @@ Bot.on :message do |message|
       message.reply(text: "J'ai trouvé #{sum} tweets qui matchent ta requête ;). Voyons voir ça ...")
       categories = ["positifs", "neutres", "négatifs"]
       results.each_with_index do |result, index|
-        message.reply(text: "Tweets #{categories[index]} : #{result} (#{((result/sum)*100).round(2)}%).")
+        message.reply(text: "Tweets #{categories[index]} : #{result} (#{((result*1.0 / sum*1.0)*100).round(0)}%).")
       end
       message.reply(text: "Des questions sur la façon dont j'ai calculé ces résultats ? Tape \"Twitter sentimental analysis\" sur google, tu comprendras j'en suis sûr !")
     end
