@@ -15,16 +15,16 @@ Bot.on :message do |message|
     end
   else
     message.reply(
-      text: 'Human, who is your favorite bot?',
+      text: 'Ceci est une question',
       quick_replies: [
         {
           content_type: 'text',
-          title: 'You are!',
+          title: 'Ceci est une réponse',
           payload: 'HARMLESS'
         },
         {
           content_type: 'text',
-          title: 'You are!2',
+          title: 'Ceci est une réponse identique',
           payload: 'EXTERMINATE'
         }
       ]
