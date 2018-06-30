@@ -91,4 +91,11 @@ config.webpacker.check_yarn_integrity = false
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  client = Twitter::REST::Client.new do |config|
+    config.consumer_key        = ENV['CONSUMER_KEY']
+    config.consumer_secret     = ENV['consumer_secret']
+    config.access_token        = ENV['ACCESS_TOKEN_TW']
+    config.access_token_secret = ENV['ACCESS_TOKEN_SECRET_TW']
+  end
 end
