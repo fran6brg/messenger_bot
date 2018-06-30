@@ -11,7 +11,7 @@ Bot.on :message do |message|
     hello = 1
   end
   if message.text.include? ("@" || "#")
-    message.reply(text: 'Ok, je t\'envoie les résultats de mon analyse asap.')
+    message.reply(text: 'Ok bro, je t\'envoie les résultats de mon analyse asap.')
     client = TwitterHelper.get_client
     results = client.search_for(message.text)
     results.each do |result|
